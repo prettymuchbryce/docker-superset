@@ -21,6 +21,19 @@ SQLALCHEMY_DATABASE_URI = '${SUP_META_DB_URI}'
 WTF_CSRF_ENABLED = ${SUP_CSRF_ENABLED}
 WTF_CSRF_EXEMPT_LIST = ${SUP_CSRF_EXEMPT_LIST}
 MAPBOX_API_KEY = '${SUP_MAPBOX_API_KEY}'
+TIME_GRAIN_ADDON_FUNCTIONS = {
+    'postgres': {
+        None: '"{col}"',
+        'PT1S': "DATE_TRUNC('second', \"{col}\") AT TIME ZONE 'UTC'",
+        'PT1M': "DATE_TRUNC('minute', \"{col}\") AT TIME ZONE 'UTC'",
+        'PT1H': "DATE_TRUNC('hour', \"{col}\") AT TIME ZONE 'UTC'",
+        'P1D': "DATE_TRUNC('day', \"{col}\") AT TIME ZONE 'UTC'",
+        'P1W': "DATE_TRUNC('week', \"{col}\") AT TIME ZONE 'UTC'",
+        'P1M': "DATE_TRUNC('month', \"{col}\") AT TIME ZONE 'UTC'",
+        'P0.25Y': "DATE_TRUNC('quarter', \"{col}\") AT TIME ZONE 'UTC'",
+        'P1Y': "DATE_TRUNC('year', \"{col}\") AT TIME ZONE 'UTC'",
+    }
+}
 EOF
 fi
 
