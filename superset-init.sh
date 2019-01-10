@@ -22,7 +22,7 @@ WTF_CSRF_ENABLED = ${SUP_CSRF_ENABLED}
 WTF_CSRF_EXEMPT_LIST = ${SUP_CSRF_EXEMPT_LIST}
 MAPBOX_API_KEY = '${SUP_MAPBOX_API_KEY}'
 TIME_GRAIN_ADDON_FUNCTIONS = {
-    'postgres': {
+    'postgresql': {
         None: '"{col}"',
         'PT1S': "DATE_TRUNC('second', \"{col}\") AT TIME ZONE 'UTC'",
         'PT1M': "DATE_TRUNC('minute', \"{col}\") AT TIME ZONE 'UTC'",
